@@ -1,0 +1,241 @@
+@use '../abstract' as *;
+// *** Alarm Clock ***
+.alarm-clock {
+  position: relative;
+  z-index: 50;
+
+  @include dimension-settings(100%, 15rem, null, 18rem);
+  @include flex-settings;
+
+  // *** Body ***
+  &__body {
+    position: absolute;
+    z-index: 10;
+
+    background-color: $color-white;
+
+    border-radius: 50%;
+    border: 0.85rem solid $color-green-secondary;
+
+    filter: drop-shadow(0.05rem 0.05rem 0.2rem $color-black);
+
+    @include dimension-settings(100%, 12rem, null, 12rem);
+
+    // *** Numbers ***
+    &-numbers {
+      color: $color-black-dark;
+
+      text-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+      @include dimension-settings(100%, 100%);
+      @include font-settings(1.5rem, 700);
+    }
+
+    &-twelve,
+    &-three,
+    &-six,
+    &-nine {
+      position: absolute;
+    }
+
+    &-twelve {
+      top: 0rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &-three {
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &-six {
+      bottom: 0rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &-nine {
+      left: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    // *** End of Numbers ***
+  }
+  // *** End of Body ***
+
+  // *** Knot ***
+  &__knot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 15;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background-color: $color-black-dark;
+
+    box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+    @include dimension-settings(100%, 1.2rem, null, 1.2rem);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+
+      border-radius: 50%;
+      background-color: $color-black-dark;
+
+      box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+      @include dimension-settings(100%, 100%);
+    }
+
+    // *** Hands - Hour, Minute, Second ***
+    &-hour,
+    &-minute,
+    &-second {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: center top;
+
+      background-color: $color-black-dark;
+
+      box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+      border-radius: 0 0 80% 80%;
+
+      @include dimension-settings(100%, 2.7rem, null, 0.3rem);
+    }
+
+    &-hour {
+      @include dimension-settings(100%, 2.15rem, null, 0.3rem);
+    }
+
+    &-second {
+      background-color: $color-danger;
+
+      @include dimension-settings(100%, 3rem, null, 0.3rem);
+    }
+    // *** End of Hands - Hour, Minute, Second ***
+  }
+  // *** End of Knot ***
+
+  // *** Hammer ***
+  &__hammer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: $color-brown-primary;
+
+    box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+    @include dimension-settings(100%, 4rem, null, 1rem);
+
+    &-head {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background-color: $color-brown-primary;
+      border-radius: 30%;
+
+      box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+      @include dimension-settings(3rem, 1rem);
+    }
+  }
+  // *** End of Hammer ***
+
+  // *** Ears ***
+  &__ear-left,
+  &__ear-right {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+
+    background-color: $color-green-secondary;
+    border-radius: 9rem 9rem 0 0;
+
+    box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+    @include dimension-settings(100%, 3rem, null, 6rem);
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -0.9rem;
+      left: 50%;
+      z-index: -1;
+      transform: translateX(-50%);
+
+      background-color: $color-brown-primary;
+
+      box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+      @include dimension-settings(100%, 1rem, null, 1rem);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -0.4rem;
+      left: 50%;
+      z-index: -1;
+      transform: translateX(-50%);
+
+      background-color: $color-brown-primary;
+
+      box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+      border-radius: 50% 50% 0 0;
+
+      @include dimension-settings(100%, 0.5rem, null, 1rem);
+    }
+  }
+
+  &__ear-left {
+    left: 0.5rem;
+    transform: rotate(-45deg);
+  }
+  &__ear-right {
+    right: 0.5rem;
+    transform: rotate(45deg);
+  }
+  // *** End of Ears ***
+
+  // *** Foots ***
+  &__foot-left,
+  &__foot-right {
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    background-color: $color-brown-primary;
+
+    box-shadow: 0.05rem 0.05rem 0.2rem $color-black;
+
+    @include dimension-settings(100%, 5rem, null, 1.5rem);
+  }
+
+  &__foot-left {
+    left: 36%;
+    transform: rotate(15deg) translateX(-36%) skewY(-15deg);
+  }
+
+  &__foot-right {
+    right: 36%;
+    transform: rotate(-15deg) translateX(36%) skewY(15deg);
+  }
+  // *** End of Foots ***
+}
+// *** End of Alarm Clock ***

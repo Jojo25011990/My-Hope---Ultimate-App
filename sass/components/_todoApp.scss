@@ -1,0 +1,206 @@
+@use '../abstract' as *;
+@use './form' as *;
+// *** Todo App ***
+.todo {
+  background-color: $color-black-todo;
+
+  border-right: 0.1rem solid $color-black;
+
+  opacity: 0;
+  visibility: hidden;
+
+  @include dimension-settings(35%, 100%);
+
+  &.active {
+    animation: fade-in 1s linear 1.5s forwards;
+  }
+
+  @media (max-width: 1100px) {
+    @include dimension-settings(50%, 100%);
+  }
+
+  @media (max-width: 700px) {
+    @include dimension-settings(100%);
+  }
+
+  // *** Todo Container ***
+  &__container {
+    padding: 0 2rem;
+
+    @include flex-settings(null, null, column);
+
+    @media (max-width: 900px) {
+      @include font-settings(1.4rem);
+    }
+  }
+  // *** End of Todo Container ***
+
+  // *** Todo Heading ***
+  &__secondary {
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+
+    background: url('.././img/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg');
+
+    text: {
+      align: center;
+      shadow: 0.1rem 0.1rem 0.5rem $color-black-dark;
+    }
+
+    @include font-settings(4rem);
+  }
+  // *** End of Todo Heading ***
+
+  // *** Todo Form ***
+  &__form {
+    margin-bottom: 1.5rem;
+
+    @include dimension-settings(100%);
+    @include flex-settings(space-between, null);
+
+    // *** Label ***
+    &-label {
+      @extend .form__control-label;
+    }
+    // *** End of Label ***
+
+    // *** Todo Input ***
+    &-input {
+      padding: 1rem;
+
+      outline: none;
+      border-radius: 0.5rem;
+
+      @include font-settings(1.8rem);
+
+      @media (max-width: 900px) {
+        @include font-settings(1.4rem);
+      }
+
+      @media (max-width: 750px) {
+        border-radius: 0.5rem 0 0 0.5rem;
+      }
+
+      @media (max-width: 700px) {
+        border-radius: 0.5rem;
+      }
+    }
+    // *** End of Todo Input ***
+
+    // *** Todo Buttons ***
+    &-btn {
+      padding: 1rem 2rem;
+
+      border-radius: 0.5rem;
+
+      cursor: pointer;
+
+      transition: background-color 0.25s;
+
+      text-transform: uppercase;
+
+      @include font-settings(1.8rem);
+
+      @media (max-width: 900px) {
+        @include font-settings(1.4rem);
+      }
+
+      @media (max-width: 750px) {
+        border-radius: 0 0.5rem 0.5rem 0;
+      }
+
+      @media (max-width: 700px) {
+        border-radius: 0.5rem;
+      }
+
+      &:hover {
+        background-color: $color-green-primary;
+      }
+
+      &--clear {
+        &:hover {
+          background-color: $color-danger;
+        }
+      }
+    }
+    // *** End of Todo Buttons ***
+  }
+  // *** End of Todo Form ***
+
+  // *** Todo List ***
+  &__list {
+    margin-bottom: 3rem;
+
+    @include flex-settings(null, null, column, 1rem);
+
+    // *** Todo List Item ***
+    &-item {
+      padding: 1rem;
+
+      border-radius: 0.5rem;
+
+      color: $color-black-dark;
+      background-color: $color-white;
+
+      cursor: pointer;
+
+      @include flex-settings(space-between);
+
+      &.completed {
+        background-color: $color-green-primary;
+      }
+
+      &.completed .todo__list-item-text {
+        text-decoration: line-through;
+      }
+
+      // *** Icons ***
+      &-icons {
+        @include flex-settings($gap: 0.5rem);
+
+        // *** Icons Btns ***
+        &-btn {
+          background-color: transparent;
+
+          .fa-solid {
+            cursor: pointer;
+
+            @include font-settings(1.8rem);
+          }
+
+          .fa-trash-can-arrow-up {
+            transition: color 0.25s;
+
+            &:hover {
+              color: $color-danger;
+            }
+          }
+
+          .fa-pen-to-square {
+            transition: color 0.25s;
+
+            &:hover {
+              color: $color-edit-primary;
+            }
+          }
+        }
+        // *** End of Icons Btns ***
+      }
+      // *** End of Icons ***
+    }
+    // *** End of Todo List Item ***
+  }
+  // *** End of Todo List ***
+
+  // *** Todo List Counter ***
+  .todo__list-counter {
+    margin-top: 1.5rem;
+
+    @media (max-width: 700px) {
+      margin: 1.5rem 0;
+    }
+  }
+
+  // *** End of Todo List Counter ***
+}
+// *** End of Todo App ***

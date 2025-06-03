@@ -1,0 +1,104 @@
+@use '../abstract' as *;
+
+// *** CSS ART Img Box ***
+.imgbox {
+  position: relative;
+
+  transform: rotateX(2deg);
+  transform-origin: bottom;
+
+  z-index: 10;
+
+  border: 0.2rem solid rgb(58, 114, 159);
+  background-color: steelblue;
+  filter: blur(0.1rem);
+
+  @include dimension-settings(40%, 15rem);
+
+  transition: all 0.3s;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
+
+  // *** Image ***
+  &-cssArt {
+    filter: blur(0.2rem) opacity(0.8);
+
+    cursor: pointer;
+
+    transition: filter 0.25s;
+
+    @include dimension-settings(100%, 100%);
+  }
+
+  &:hover .imgbox-cssArt {
+    filter: blur(0rem);
+  }
+
+  &:hover {
+    transform: rotateX(0deg);
+  }
+  // *** End of Image ***
+}
+// *** End of CSS ART Img Box ***
+
+// *** Lightbox Overlay ***
+#lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  padding: 0 5rem;
+
+  background-color: rgba($color-black, $alpha: 0.8);
+
+  @include dimension-settings(100%, 100%);
+  @include flex-settings(center, center, column);
+}
+// *** End of Lightbox Overlay ***
+
+// *** LightBox New Image ***
+#new-image {
+  background-color: $color-blue-primary;
+
+  border: 1rem solid $color-white;
+
+  transform: scale(0);
+
+  animation: scale 0.45s linear 1.8s forwards;
+
+  @include dimension-settings(100%, auto, null, 120rem);
+}
+// *** End of LightBox New Image ***
+
+// *** LightBox Box Text ***
+#box-wrapper {
+  margin-top: 3.5rem;
+
+  text-align: center;
+
+  border-bottom: 0.2rem solid $color-white;
+
+  overflow: hidden;
+  opacity: 0;
+
+  animation: lightbox-animate-text 2s linear 0.45s forwards;
+
+  // *** doriesit respon ***
+  @include dimension-settings(40rem, 3rem);
+
+  // *** LightBox Text ***
+  &__text {
+    text-transform: uppercase;
+
+    @include font-settings(1.6rem, 700);
+
+    @media (max-width: 500px) {
+      @include font-settings(1.3rem, 700);
+    }
+  }
+  // *** End of LightBox Text ***
+}
+// *** End of LightBox Box Text ***

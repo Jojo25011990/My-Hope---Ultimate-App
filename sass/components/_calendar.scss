@@ -1,0 +1,167 @@
+@use '../abstract' as *;
+
+// *** Calendar ***
+.calendar {
+  box-shadow: 0rem 0rem 0.5rem $color-black-dark;
+
+  background-color: $color-black-dark;
+
+  border-radius: 0.5rem;
+
+  overflow: hidden;
+
+  @include dimension-settings(100%, null, null, 40rem);
+
+  @include flex-settings(null, null, column);
+
+  opacity: 0;
+  visibility: hidden;
+
+  &.active {
+    animation: fade-in 1s linear 1.95s forwards;
+  }
+
+  @media (max-width: 700px) {
+    @include dimension-settings(100%, null, null, 100%);
+  }
+
+  // *** Top Box ***
+  &__topBox {
+    position: relative;
+
+    padding: 2rem 4rem;
+
+    background-image: url('.././img/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg');
+
+    @include dimension-settings(100%, 10rem);
+    @include flex-settings($direction: column);
+
+    @media (max-width: 750px) {
+      padding: 2rem;
+    }
+
+    // *** Heading Month & Full Date ***
+    &-month,
+    &-fullDate {
+      text-shadow: 0.1rem 0.1rem 0.3rem $color-black-dark;
+    }
+    // *** End of Heading Month & Full Date  ***
+
+    // *** Top Box Wrapper ***
+    &-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      padding-inline: 4rem;
+
+      @include dimension-settings(100%);
+      @include flex-settings(space-between);
+
+      @media (max-width: 400px) {
+        padding-inline: 1.5rem;
+      }
+    }
+    // *** End of Top Box Wrapper ***
+
+    // *** Top Box Btns ***
+    &-leftBtn,
+    &-rightBtn {
+      color: $color-white;
+      background-color: transparent;
+
+      text-shadow: 0.1rem 0.1rem 0.3rem $color-black-dark;
+
+      cursor: pointer;
+    }
+    // *** End of Top Box Btns ***
+  }
+  // *** End of Top Box ***
+
+  // *** Down Box ***
+  &__downBox {
+    padding: 2rem;
+
+    @include dimension-settings(100%);
+
+    @media (max-width: 750px) {
+      padding: 1.5rem;
+    }
+
+    // *** Week Days ***
+    &-weekdays {
+      @include dimension-settings(100%, 4rem);
+      @include flex-settings(null, null);
+    }
+    // *** End of Week Days ***
+
+    // *** Week Day ***
+    &-weekday {
+      @include dimension-settings(100%, 100%);
+      @include flex-settings;
+      @include font-settings(1.5rem, 700);
+
+      @media (max-width: 750px) {
+        @include font-settings(1.3rem, 700);
+      }
+    }
+    // *** End of Week Day ***
+
+    // *** Days ***
+    &-days {
+      margin-top: 0.5rem;
+
+      flex-wrap: wrap;
+
+      @include dimension-settings(100%);
+      @include flex-settings(null, null);
+    }
+    // *** End of Days ***
+
+    // *** Day ***
+    &-day {
+      border: 0.2rem solid transparent;
+
+      margin: 0.5rem 0;
+
+      transition: border-color 0.3s;
+
+      cursor: pointer;
+
+      @include dimension-settings(calc(100% / 7), 4rem);
+      @include flex-settings;
+      @include font-settings(1.4rem, 500);
+
+      @media (max-width: 750px) {
+        @include font-settings(1.25rem, 500);
+      }
+
+      &:hover:not(.today),
+      &:active:not(.today) {
+        border-color: rgba($color-white, $alpha: 0.5);
+      }
+
+      &.today {
+        background: {
+          image: url('.././img/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg');
+
+          position-y: -0.2rem;
+          position-x: -23rem;
+        }
+      }
+
+      &.selected {
+        border-color: rgba($color-white, $alpha: 0.5);
+      }
+
+      &.prev-day {
+        opacity: 0.4;
+      }
+    }
+
+    // *** End of Day ***
+  }
+  // *** End of Down Box ***
+}
+// *** End of Calendar ***

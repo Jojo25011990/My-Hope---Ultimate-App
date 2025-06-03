@@ -1,0 +1,141 @@
+@use '../abstract' as *;
+
+// *** Overlay Confirm Box ***
+.overlay__confirmBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+
+  display: none;
+
+  padding: 0 2rem;
+
+  background-color: rgba($color-black, $alpha: 0.7);
+
+  filter: drop-shadow(0 1rem 1.5rem rgba($color-black, 0.3));
+
+  @include dimension-settings(100%, 100%);
+
+  &.active {
+    @include flex-settings;
+  }
+}
+// *** End of Overlay Confirm Box ***
+
+// *** Confirm Box ***
+.confirmBox {
+  background-color: $color-white;
+  border-radius: 0.8rem;
+
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.25),
+    0 2rem 4rem rgba($color-black, 0.15), 0 0.5rem 1rem rgba($color-black, 0.3);
+
+  filter: drop-shadow(0 1rem 1.5rem rgba($color-black, 0.3));
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  animation: animate-confirmBox 0.5s linear 0.3s forwards;
+
+  will-change: transform;
+
+  @include dimension-settings(100%, null, null, 40rem);
+
+  // *** Top ***
+  &__top {
+    background-image: url('.././img/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg');
+
+    @include flex-settings;
+    @include dimension-settings(100%, 15rem);
+
+    i {
+      border: 0.1rem solid $color-white;
+      border-radius: 50%;
+
+      @include flex-settings;
+      @include dimension-settings(7.5rem, 7.5rem);
+    }
+  }
+  // *** End of Top ***
+
+  // *** Content ***
+  &__content {
+    color: $color-black;
+
+    padding: 3rem;
+
+    @include flex-settings(center, center, column);
+
+    @media (max-width: 500px) {
+      padding: 2rem;
+    }
+
+    // *** Title ***
+    &-title {
+      @include font-settings(2.5rem);
+
+      @media (max-width: 500px) {
+        @include font-settings(2rem);
+      }
+    }
+    // *** End of Title ***
+
+    // *** Message ***
+    &-message {
+      @include font-settings(1.6rem);
+
+      @media (max-width: 500px) {
+        @include font-settings(1.4rem);
+      }
+    }
+    // *** End of Message ***
+
+    // *** Btn Wrapper ***
+    &-btn-wrapper {
+      margin-top: 3.5rem;
+
+      @include flex-settings(space-around, null);
+      @include dimension-settings(100%);
+    }
+    // *** End of Btn Wrapper ***
+
+    // *** Btn Yes & No ***
+    &-btn-yes,
+    &-btn-no {
+      color: $color-white;
+
+      border-radius: 0.8rem;
+
+      padding: 1rem 0;
+
+      transition: opacity 0.25s;
+
+      cursor: pointer;
+
+      @include dimension-settings(10.2rem);
+      @include font-settings(2rem);
+
+      &:hover,
+      &:active {
+        opacity: 0.7;
+      }
+
+      @media (max-width: 500px) {
+        @include font-settings(1.7rem);
+      }
+    }
+
+    &-btn-yes {
+      background-color: $color-green-primary;
+    }
+
+    &-btn-no {
+      background-color: $color-danger;
+    }
+    // *** End of Btn Yes & No ***
+  }
+  // *** End of Content ***
+}
+// *** End of Confirm Box ***

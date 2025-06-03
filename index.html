@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- End of Google Fonts -->
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/3749010148.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- End of Font Awesome Icons -->
+
+    <title>My Hope App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Section 01 Three js  -->
+    <section class="section section-01">
+      <canvas class="canvas-01" id="canvas-01"></canvas>
+    </section>
+    <!-- End of Section 01 Three js -->
+
+    <!-- Section 02 Gsap Animations -->
+    <section class="section section-02">
+      <!-- Sub Title -->
+      <h3 class="sub-title">
+        <span class="sub-title__span">C</span>
+        <span class="sub-title__span">a</span>
+        <span class="sub-title__span">n</span>
+        <span class="sub-title__span">Y</span>
+        <span class="sub-title__span">o</span>
+        <span class="sub-title__span">u</span>
+        <!-- Can You -->
+      </h3>
+      <!-- End of Sub Title -->
+
+      <!-- Title  -->
+      <h2 class="title">
+        <span class="title__span">Describe</span>
+        <span class="title__span">My</span>
+        <span class="title__span">Hope</span>
+        <span class="title__span">App</span>
+      </h2>
+      <!-- End of Title  -->
+
+      <!-- Description -->
+      <ul class="description">
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+        <li class="description__item"></li>
+      </ul>
+      <!-- End of Description -->
+    </section>
+    <!-- End of Section 02 Gsap Animations -->
+
+    <!-- Section 03 Login Form & Canvas Text -->
+    <section class="section section-03">
+      <!-- Canvas - Todo App  -->
+      <canvas id="canvas-02" class="canvas-02"></canvas>
+      <!-- End of Canvas - Todo App  -->
+
+      <!-- Login Form -->
+      <form class="form" id="form" novalidate>
+        <!-- Form Control Email -->
+        <div class="form__control">
+          <label for="email" class="form__control-label">Email Address</label>
+          <input
+            type="email"
+            class="form__control-input"
+            placeholder="Email Address"
+            id="email"
+            autocomplete="off"
+          />
+          <small class="form__control-small">Daj tam nieco</small>
+        </div>
+        <!-- End of Form Control Email -->
+
+        <!-- Form Control Password -->
+        <div class="form__control">
+          <label for="" class="form__control-label">Password</label>
+          <input
+            type="password"
+            class="form__control-input"
+            placeholder="Password"
+            id="password"
+          />
+          <small class="form__control-small"></small>
+        </div>
+        <!-- End of Form Control Password -->
+
+        <!-- Form Button -->
+        <button class="form__btn">
+          Log in
+          <span class="form__btn-span"></span>
+          <span class="form__btn-span"></span>
+          <span class="form__btn-span"></span>
+          <span class="form__btn-span"></span>
+        </button>
+        <!-- End of Form Button -->
+      </form>
+      <!-- End of Login Form -->
+
+      <!-- Password Hint -->
+      <p class="section-03__password">Password: natalka123</p>
+      <!-- End of Password Hint -->
+    </section>
+    <!-- End of Section 03 Login Form & Canvas Text -->
+
+    <!-- Section 04, Tons a animations & effects -->
+    <section class="section section-04">
+      <!-- Auto Write Text -->
+      <span class="question-answer" id="question-answer">
+        <!-- Who’s is that person? -->
+        <!-- It's a beautiful girl. -->
+      </span>
+      <!-- End of Auto Write Text -->
+
+      <!-- Wrapper App -->
+      <div class="wrapper" id="wrapper">
+        <!-- Todo App -->
+        <div class="todo">
+          <h2 class="todo__secondary">Todo List</h2>
+
+          <div class="todo__container">
+            <!-- Todo Form -->
+            <form class="todo__form" id="todo-form" autocomplete="off">
+              <!-- label src class len pre screen readers -->
+              <label for="todo-input" class="todo__form-label"></label>
+              <input
+                type="text"
+                class="todo__form-input"
+                id="todo-input"
+                placeholder="Add Task"
+              />
+
+              <button type="submit" class="todo__form-btn" id="todo-add-btn">
+                Add
+              </button>
+            </form>
+            <!-- End of Todo Form -->
+
+            <ul class="todo__list" id="todo-list"></ul>
+
+            <button
+              type="button"
+              class="todo__form-btn todo__form-btn--clear"
+              id="todo-clear-btn"
+            >
+              Clear Items
+            </button>
+
+            <!-- Completed and Uncompleted -->
+            <div class="todo__list-counter">
+              <p class="todo__list-counter-items">
+                Completed:
+                <span class="todo__list-counter-items-01" id="completed"></span>
+                | Uncompleted:
+                <span
+                  class="todo__list-counter-items-02"
+                  id="uncompleted"
+                ></span>
+              </p>
+            </div>
+            <!-- End of Completed and Uncompleted -->
+          </div>
+        </div>
+        <!-- End of Todo App -->
+
+        <!-- Container -->
+        <div class="container">
+          <!-- Container CSS ART -->
+          <div class="container__css-art">
+            <div class="shelf"></div>
+
+            <!--  Container CSS ART ITEMS -->
+            <div class="container__css-art-items">
+              <!-- Alarm Clock -->
+              <div class="alarm-clock">
+                <div class="alarm-clock__body">
+                  <div class="alarm-clock__body-numbers">
+                    <div class="alarm-clock__body-twelve">12</div>
+                    <div class="alarm-clock__body-three">3</div>
+                    <div class="alarm-clock__body-six">6</div>
+                    <div class="alarm-clock__body-nine">9</div>
+                  </div>
+                </div>
+                <div class="alarm-clock__knot">
+                  <div class="alarm-clock__knot-hour" id="hour"></div>
+                  <div class="alarm-clock__knot-minute" id="minute"></div>
+                  <div class="alarm-clock__knot-second" id="second"></div>
+                </div>
+
+                <div class="alarm-clock__hammer">
+                  <div class="alarm-clock__hammer-head"></div>
+                </div>
+                <div class="alarm-clock__ear-left"></div>
+                <div class="alarm-clock__ear-right"></div>
+
+                <div class="alarm-clock__foot-left"></div>
+                <div class="alarm-clock__foot-right"></div>
+              </div>
+              <!-- End of Alarm Clock -->
+
+              <!-- Css Art Image, Class imgBox  -->
+              <div class="imgbox">
+                <img
+                  src="./img/Ship-Shark-Fish.png"
+                  alt="Css art illustration by Jozef Kudrna (From my custom gallery of CSS art photos)"
+                  class="imgbox-cssArt"
+                />
+              </div>
+              <!-- End of Css Art Image. Class imgbox  -->
+
+              <!-- Cactus -->
+              <div class="cactus">
+                <div class="cactus__pot">
+                  <div class="cactus__pot-top"></div>
+                  <div class="cactus__pot-eye-left"></div>
+                  <div class="cactus__pot-eye-right"></div>
+                </div>
+                <div class="cactus__big">
+                  <div class="cactus__big-spines"></div>
+                  <div class="cactus__big-spines"></div>
+                  <div class="cactus__big-spines"></div>
+                </div>
+                <div class="cactus__small">
+                  <div class="cactus__small-spines"></div>
+                  <div class="cactus__small-spines"></div>
+                  <div class="cactus__small-spines"></div>
+                </div>
+                <!-- End of Cactus -->
+              </div>
+              <!-- End of Container CSS ART ITEMS -->
+            </div>
+            <!-- End of Container CSS ART -->
+          </div>
+          <!-- End of Container CSS ART -->
+
+          <!-- Container Girl & Calendar & Digital Clock -->
+          <div class="container-girl-calendar-clock">
+            <!-- Girl -->
+            <div class="girl">
+              <img
+                src="./img/My Girl.png"
+                alt="Hijab girl with big Pencil"
+                id="my-girl"
+              />
+            </div>
+            <!-- End of Girl -->
+
+            <!-- Calendar -->
+            <div class="calendar">
+              <!-- Top Box  -->
+              <div class="calendar__topBox">
+                <h2 class="calendar__topBox-month" id="heading-month"></h2>
+                <p class="calendar__topBox-fullDate" id="full-date"></p>
+
+                <div class="calendar__topBox-wrapper">
+                  <button class="calendar__topBox-leftBtn" id="btn-left">
+                    <i class="fas fa-angle-left fa-2x"></i>
+                  </button>
+                  <button class="calendar__topBox-rightBtn" id="btn-right">
+                    <i class="fas fa-angle-right fa-2x"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- End of Top Box  -->
+
+              <!-- Down Box -->
+              <div class="calendar__downBox">
+                <div class="calendar__downBox-weekdays">
+                  <div class="calendar__downBox-weekday">Mon</div>
+                  <div class="calendar__downBox-weekday">Tue</div>
+                  <div class="calendar__downBox-weekday">Wed</div>
+                  <div class="calendar__downBox-weekday">Thu</div>
+                  <div class="calendar__downBox-weekday">Fri</div>
+                  <div class="calendar__downBox-weekday">Sat</div>
+                  <div class="calendar__downBox-weekday">Sun</div>
+                </div>
+                <div class="calendar__downBox-days" id="days"></div>
+              </div>
+              <!-- End of Down Box -->
+            </div>
+            <!-- Endo f Calendar  -->
+
+            <!-- Digital Clock: Mobile Device -->
+            <div class="digital-clock" id="digital-clock"></div>
+            <!-- End of Digital Clock: Mobile Device -->
+          </div>
+          <!-- End of Container Girl & Calendar & Digital Clock -->
+        </div>
+        <!-- End of Container -->
+      </div>
+      <!-- End of Wrapper App -->
+    </section>
+    <!-- End of Section 04, Tons a animations & effects -->
+
+    <!-- Overlay Edit Box -->
+    <div class="overlay__editBox" id="overlay-edit-box">
+      <div class="editBox" id="edit-box">
+        <!-- Close Button -->
+        <button class="editBox__btn-close" id="close-button">
+          <i class="fa-solid fa-xmark fa-2x"></i>
+        </button>
+        <!-- End of Close Button -->
+
+        <!-- Title & Input  -->
+        <h3 class="editBox__title">Change Task</h3>
+
+        <label for="edit-input" class="editBox__label"></label>
+
+        <input
+          class="editBox__input"
+          type="text"
+          id="edit-input"
+          placeholder="Add new task..."
+        />
+        <!-- End of Title & Input  -->
+
+        <!-- Buttons - Save & Cancel -->
+        <div class="editBox__btn-wrapper">
+          <button class="editBox__btn-save" id="save-btn">Save</button>
+          <button class="editBox__btn-cancel" id="cancel-btn">Cancel</button>
+        </div>
+        <!-- End of Buttons - Save & Cancel -->
+      </div>
+    </div>
+    <!-- End of Overlay Edit Box -->
+
+    <!-- Overlay Confirm Box -->
+    <div class="overlay__confirmBox" id="confirm-overlay">
+      <div class="confirmBox" id="confirm-box">
+        <!-- Icon -->
+        <div class="confirmBox__top">
+          <i class="fa-solid fa-question fa-2x"></i>
+        </div>
+        <!-- End of Icon -->
+
+        <!-- Content -->
+        <div class="confirmBox__content">
+          <!-- Title & Message -->
+          <h3 class="confirmBox__content-title">Are you sure? 👀</h3>
+
+          <p class="confirmBox__content-message">
+            <em> Really you want delete this task?🙂</em>
+          </p>
+          <!-- End of Title & Message -->
+
+          <!-- Buttons - Yes & No -->
+          <div class="confirmBox__content-btn-wrapper">
+            <button
+              type="button"
+              class="confirmBox__content-btn-yes"
+              id="confirm-btn-yes"
+            >
+              Okay
+            </button>
+            <button
+              type="button"
+              class="confirmBox__content-btn-no"
+              id="confirm-btn-no"
+            >
+              Cancel
+            </button>
+          </div>
+          <!-- End of Buttons - Yes & No -->
+        </div>
+        <!-- End of Content -->
+      </div>
+    </div>
+    <!-- End of Overlay Confirm Box -->
+
+    <!-- Gsap, Gsap TextPlugin and Script js  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/TextPlugin.min.js"
+      integrity="sha512-8BkFnMa5pqmphA7XoSbkjP2qX7Gqlkel2C+p1g1AH1tW4cBJs2tumC0Zn9eNRBOKbe3dW9OtbYh/vpkGuZNTMw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script type="module" src="./js/script.js"></script>
+
+    <!-- End of Gsap, Gsap TextPlugin and Script js  -->
+  </body>
+</html>

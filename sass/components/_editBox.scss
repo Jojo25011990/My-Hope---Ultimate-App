@@ -1,0 +1,119 @@
+@use '../abstract' as *;
+@use './confirmBox' as *;
+@use './form' as *;
+
+// *** Overlay Edit Box ***
+.overlay__editBox {
+  @extend .overlay__confirmBox;
+}
+// *** End of Overlay Edit Box ***
+
+// *** Edit Box ***
+.editBox {
+  position: relative;
+
+  background-image: url('.././img/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg');
+
+  border-radius: 0.8rem;
+
+  padding: 3rem 5rem;
+
+  opacity: 0;
+
+  animation: animate-editBox 0.7s linear 0.35s forwards;
+
+  will-change: opacity, transform;
+
+  @include dimension-settings(40rem);
+  @include flex-settings(center, center, column, 2.5rem);
+
+  @media (max-width: 400px) {
+    padding: 3rem 4rem;
+  }
+
+  // *** Close Btn ***
+  &__btn-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    color: $color-white;
+    background-color: transparent;
+
+    padding: 0.5rem 1rem;
+
+    cursor: pointer;
+  }
+  // *** End of Close Btn ***
+
+  // *** Title ***
+  &__title {
+    color: $color-white;
+
+    text-shadow: 0.2rem 0.2rem 0 $color-black;
+
+    @include font-settings(2.8rem);
+  }
+  // *** End of Title ***
+
+  // *** Label ***
+  &__label {
+    @extend .form__control-label;
+  }
+  // *** End of Label ***
+
+  // *** Input ***
+  &__input {
+    padding: 1rem;
+
+    outline: none;
+    border-radius: 0.5rem;
+
+    @include font-settings(1.8rem);
+    @include dimension-settings(100%);
+
+    &::placeholder {
+      color: $color-gray-medium;
+    }
+  }
+  // *** End of Input ***
+
+  // *** Btn Wrapper ***
+  &__btn-wrapper {
+    @include flex-settings(space-between, null);
+    @include dimension-settings(100%);
+  }
+  // *** End of Btn Wrapper ***
+
+  // *** Btn Save & Cancel ***
+  &__btn-save,
+  &__btn-cancel {
+    color: $color-white;
+
+    border-radius: 0.8rem;
+
+    padding: 1rem 0;
+
+    transition: opacity 0.25s;
+
+    cursor: pointer;
+
+    @include dimension-settings(10.2rem);
+    @include font-settings(1.5rem, 700);
+
+    &:hover,
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &__btn-save {
+    background-color: $color-green-primary;
+  }
+
+  &__btn-cancel {
+    background-color: $color-danger;
+  }
+  // *** End of Btn Save & Cancel ***
+}
+// *** End of Edit Box ***

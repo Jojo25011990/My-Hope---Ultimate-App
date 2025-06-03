@@ -1,0 +1,268 @@
+@use '../abstract' as *;
+// *** Form ***
+.form {
+  position: relative;
+  top: -5rem;
+  z-index: 500;
+  transform: scale(0);
+
+  opacity: 0;
+  visibility: hidden;
+
+  background-color: $color-white;
+  color: $color-black-dark;
+
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 0.1rem $color-black-dark;
+
+  padding: 4rem;
+
+  @include dimension-settings(40rem, 32rem);
+
+  @media (max-width: 500px) {
+    @include dimension-settings(35rem, 27rem);
+  }
+
+  // *** Form Control ***
+  &__control {
+    position: relative;
+
+    border-radius: 0.8rem;
+
+    @include dimension-settings(100%, 5rem);
+    @include flex-settings(null, center);
+
+    &:nth-child(2) {
+      margin-top: 3rem;
+    }
+
+    // *** Labels Sr Only***
+    &-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    // *** End of Labels Sr Only***
+
+    // *** Inputs, error and success box shadow ***
+    &-input {
+      padding-left: 2rem;
+
+      outline: none;
+      box-shadow: 0.5rem 0.5rem 0.1rem $color-black-dark;
+
+      font-family: $font-family-primary;
+
+      transition: color 0.3s, box-shadow 0.3s;
+
+      @include dimension-settings(100%, 100%);
+      @include font-settings(1.75rem, 600);
+
+      @media (max-width: 500px) {
+        @include font-settings(1.5rem, 600);
+      }
+
+      &::placeholder {
+        color: inherit;
+      }
+    }
+
+    &.error .form__control-input {
+      color: $color-danger;
+      box-shadow: 0.5rem 0.5rem 0.1rem $color-danger;
+    }
+
+    &.success .form__control-input {
+      color: $color-green-primary;
+      box-shadow: 0.5rem 0.5rem 0.1rem $color-green-primary;
+    }
+    // *** End of Inputs, error and success box shadow ***
+
+    // *** Small - Error Message ***
+    &-small {
+      position: absolute;
+      bottom: -2.3rem;
+      right: 0;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: all 0.3s;
+
+      text-transform: uppercase;
+      @include font-settings(1rem, 700);
+    }
+
+    &.error .form__control-small {
+      color: $color-danger;
+
+      opacity: 1;
+      visibility: visible;
+    }
+    // *** End of Small - Error Message ***
+  }
+  // *** End of Form Control ***
+
+  // *** Button***
+  &__btn {
+    position: relative;
+    z-index: 5;
+
+    display: block;
+
+    color: $color-black-dark;
+
+    padding: 2rem 4rem;
+    margin: 5rem auto 0 auto;
+
+    cursor: pointer;
+
+    @include font-settings(inherit, 700);
+
+    @media (max-width: 500px) {
+      padding: 1.5rem 3rem;
+      margin: 3.5rem auto 0 auto;
+
+      @include font-settings(1.25rem, 700);
+    }
+
+    // *** Button pseudo::before ***
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transform: scale(0);
+      transform-origin: top left;
+
+      background-color: $color-black-dark;
+
+      @include dimension-settings(100%, 100%);
+    }
+
+    &:hover:before,
+    &:active::before {
+      transform: scale(1);
+
+      transition: 0.5s;
+      transition-delay: 0.9s;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-light;
+
+      transition: 0.2s;
+      transition-delay: 1s;
+    }
+    // *** End of Button pseudo::before ***
+
+    // *** Button pseudo::after ***
+    &:after {
+      content: '\f303';
+
+      position: absolute;
+      top: -2.2rem;
+      left: 0;
+
+      color: $color-black-dark;
+
+      font-family: fontAwesome;
+      @include font-settings(2.2rem);
+    }
+
+    &:hover:after {
+      animation: pencil-draw 1.1s linear forwards;
+    }
+    // *** Button pseudo::after ***
+
+    // *** Spans ***
+    &-span {
+      position: absolute;
+      background-color: $color-black-dark;
+    }
+
+    // *** Spans 01 & 03 ***
+    &-span:nth-child(1),
+    &-span:nth-child(3) {
+      left: 0;
+      transform: scaleX(0);
+
+      @include dimension-settings(100%, 0.3rem);
+    }
+
+    &-span:nth-child(1) {
+      top: 0;
+      transform-origin: left;
+    }
+
+    &-span:nth-child(3) {
+      bottom: 0;
+      transform-origin: right;
+    }
+
+    &:hover .form__btn-span:nth-child(1),
+    &:active .form__btn-span:nth-child(1),
+    &:hover .form__btn-span:nth-child(3),
+    &:active .form__btn-span:nth-child(3) {
+      transform: scaleX(1);
+
+      transition: all 0.25s;
+    }
+
+    &:hover .form__btn-span:nth-child(3),
+    &:active .form__btn-span:nth-child(3) {
+      transition-delay: 0.5s;
+    }
+    // *** End of Spans 01 & 03 ***
+
+    // *** Spans 02 & 04 ***
+    &-span:nth-child(2),
+    &-span:nth-child(4) {
+      top: 0;
+      transform: scaleY(0);
+
+      @include dimension-settings(0.3rem, 100%);
+    }
+
+    &-span:nth-child(2) {
+      left: 0;
+      transform-origin: bottom;
+    }
+
+    &-span:nth-child(4) {
+      right: 0;
+      transform-origin: top;
+    }
+
+    &:hover .form__btn-span:nth-child(2),
+    &:hover .form__btn-span:nth-child(4) {
+      transform: scaleY(1);
+      transition: all 0.25s;
+    }
+
+    &:hover .form__btn-span:nth-child(2),
+    &:active .form__btn-span:nth-child(2) {
+      transition-delay: 0.75s;
+    }
+
+    &:hover .form__btn-span:nth-child(4),
+    &:active .form__btn-span:nth-child(4) {
+      transition-delay: 0.25s;
+    }
+
+    // *** End of Spans 02 & 04 ***
+
+    // *** End of Spans ***
+  }
+  // *** End of Button***
+}
+// *** End of Form ***

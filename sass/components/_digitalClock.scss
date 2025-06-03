@@ -1,0 +1,25 @@
+@use '../abstract' as *;
+
+.digital-clock {
+  display: none;
+
+  background-image: url('.././img/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg');
+
+  border-radius: 0.5rem;
+
+  padding: 1rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  @include dimension-settings(100%);
+  @include font-settings(3.5rem, 700);
+
+  @media (max-width: 700px) {
+    @include flex-settings;
+  }
+
+  &.active {
+    animation: fade-in 1s linear 2.1s forwards;
+  }
+}
