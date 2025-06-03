@@ -21,7 +21,6 @@ function init() {
       threejsTextSection.stopAnimation();
 
       sectionLoginForm();
-      console.log('Zatial nic');
     });
   });
 }
